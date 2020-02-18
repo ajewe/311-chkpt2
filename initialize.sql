@@ -1,4 +1,6 @@
-DROP TABLE IF EXISTS users, lab, logs, inventory;
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS users, labs, logs, inventory;
+SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT,
@@ -8,7 +10,7 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE lab (
+CREATE TABLE labs (
   id INT NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
   lab_name VARCHAR(50),
@@ -38,6 +40,6 @@ CREATE TABLE inventory (
   size VARCHAR(20),
   PRIMARY KEY (id),
   FOREIGN KEY (lab_id)
-  REFERENCES lab (id)
+  REFERENCES labs (id)
     ON DELETE CASCADE
 );
