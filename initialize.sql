@@ -21,7 +21,7 @@ CREATE TABLE lab (
 CREATE TABLE logs (
   id INT NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
-  entry_date CONVERT(VARCHAR(10), GETDATE(), 110),
+  entry_date VARCHAR(20),
   entry TEXT,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id)
